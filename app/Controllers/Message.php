@@ -258,7 +258,7 @@ class Message extends BaseController
 
             if ($messageModel->update($this->request->getPost('idMessage'), $data)===false){
                     return redirect()->back()->withInput()->with('errors', $messageModel->errors());
-                }
+                } else { return redirect()->route('liste_messages', [$this->request->getPost('idCommune')]);}
         } else {
             $data = [
                 'TITRE' => $this->request->getPost('titre'),
